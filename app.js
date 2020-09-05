@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
+import { gradeRouter } from "./routes/gradeRouter.js";
 
 import { db } from "./models/index.js";
 
@@ -10,7 +11,9 @@ import { db } from "./models/index.js";
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
+    console.log("Conectado ao mongoDB");
   } catch (error) {
+    console.log("Houve um erro com a conexão ao banco: " + error);
     process.exit();
   }
 })();
@@ -29,5 +32,7 @@ app.use(
 app.get("/", (req, res) => {
   res.send("API em execucao");
 });
+
+app.use("/", gradeRouter);
 
 app.listen(process.env.PORT || 8081, () => {});

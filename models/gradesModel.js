@@ -21,6 +21,7 @@ export default (mongoose) => {
       default: Date.now,
     },
   });
+
   const gradesModel = mongoose.model("grades", schema, "grades");
 
   return gradesModel;
