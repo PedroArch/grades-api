@@ -18,7 +18,7 @@ export default (mongoose) => {
     },
     date: {
       type: Date,
-      default: Date.now(),
+      default: Date.now,
     },
   });
   const gradesModel = mongoose.model("grades", schema, "grades");
