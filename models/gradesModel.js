@@ -1,5 +1,5 @@
 export default (mongoose) => {
-  const Schema = mongoose.Schema({
+  const schema = mongoose.Schema({
     name: {
       type: String,
       required: true,
