@@ -16,7 +16,7 @@ export default (mongoose) => {
       type: Number,
       required: true,
     },
-    date: {
+    lastModified: {
       type: Date,
       default: Date.now,
     },
