@@ -28,11 +28,10 @@ app.use(
     origin: "https://gradesapp-frontend.herokuapp.com/grade",
   })
 );
+app.use("/", gradeRouter);
 
 app.get("/", (req, res) => {
   res.send("API em execucao");
 });
-
-app.use("/", gradeRouter);
 
 app.listen(process.env.PORT || 8081, () => {});
