@@ -41,13 +41,13 @@ const findAll = async (req, res) => {
       res.status(404).send("Não encontrado nenhuma grade");
     } else {
       res.send(data);
-      logger.info(`GET /grade`);
+      //logger.info(`GET /grade`);
     }
   } catch (error) {
     res
       .status(500)
       .send({ message: error.message || "Erro ao listar todos os documentos" });
-    logger.error(`GET /grade - ${JSON.stringify(error.message)}`);
+    // logger.error(`GET /grade - ${JSON.stringify(error.message)}`);
   }
 };
 
@@ -61,11 +61,11 @@ const findOne = async (req, res) => {
       res.status(404).send("Não encontrado nenhuma grade com o id: " + id);
     } else {
       res.send(data);
-      logger.info(`GET /grade` + id);
+      //logger.info(`GET /grade` + id);
     }
   } catch (error) {
     res.status(500).send({ message: "Erro ao buscar o Grade id: " + id });
-    logger.error(`GET /grade/${id} - ${JSON.stringify(error.message)}`);
+    //logger.error(`GET /grade/${id} - ${JSON.stringify(error.message)}`);
   }
 };
 
@@ -87,13 +87,11 @@ const update = async (req, res) => {
       res.status(404).send("Não encontrado nenhuma grade com o id: " + id);
     } else {
       res.send(data);
-      logger.info(`PUT /grade/` + id);
+      //logger.info(`PUT /grade - ${id} - ${JSON.stringify(req.body)}`);
     }
-
-    logger.info(`PUT /grade - ${id} - ${JSON.stringify(req.body)}`);
   } catch (error) {
     res.status(500).send({ message: "Erro ao atualizar a Grade id: " + id });
-    logger.error(`PUT /grade - ${JSON.stringify(error.message)}`);
+    // logger.error(`PUT /grade - ${JSON.stringify(error.message)}`);
   }
 };
 
@@ -106,13 +104,13 @@ const remove = async (req, res) => {
       res.status(404).send("Não encontrado nenhuma grade com o id: " + id);
     } else {
       res.send("Excluida a grade de id " + id);
-      logger.info(`DELETE /grade - ${id}`);
+      //logger.info(`DELETE /grade - ${id}`);
     }
   } catch (error) {
     res
       .status(500)
       .send({ message: "Nao foi possivel deletar o Grade id: " + id });
-    logger.error(`DELETE /grade - ${JSON.stringify(error.message)}`);
+    //logger.error(`DELETE /grade - ${JSON.stringify(error.message)}`);
   }
 };
 
@@ -123,11 +121,11 @@ const removeAll = async (req, res) => {
       res.status(404).send("Não encontrado nenhuma grade");
     } else {
       res.send("Todas grades excluidas com sucesso!");
-      logger.info(`DELETE /grade`);
+      //logger.info(`DELETE /grade`);
     }
   } catch (error) {
     res.status(500).send({ message: "Erro ao excluir todos as Grades" });
-    logger.error(`DELETE /grade - ${JSON.stringify(error.message)}`);
+    // logger.error(`DELETE /grade - ${JSON.stringify(error.message)}`);
   }
 };
 
