@@ -33,9 +33,9 @@ const findAll = async (req, res) => {
   var condition = name
     ? { name: { $regex: new RegExp(name), $options: "i" } }
     : {};
-
+  console.log(condition);
   try {
-    const data = await Grade.find({ condition });
+    const data = await Grade.find(condition);
 
     if (!data) {
       res.status(404).send("Não encontrado nenhuma grade");
